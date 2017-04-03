@@ -16,9 +16,7 @@ branches:
 # add this if you use maven for your project and want to verify mvn build is successful and all unit tests pass.
 script:
  - mvn clean compile
- - ant instrument
  - mvn test
- - ant report
  - mvn cobertura:cobertura
 
 
