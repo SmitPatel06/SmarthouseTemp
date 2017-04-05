@@ -5,7 +5,9 @@
             <param name="module" value="MODULE_NAME_TO_REPLACE"/>
         </antcall> -->
         <antcall target="instrumentAModule">
-            <param name="module" value="product"/>
+            <param name="module" value="A"/>
+			<param name="module" value="B"/>
+			<param name="module" value="Integration"/>
         </antcall>
     </target>
 
@@ -16,7 +18,9 @@
                           destdir="./target/report">
             <!-- Add all modules that should be included below -->
             <!-- fileset dir="./MODULE_NAME_TO_REPLACE/${src.dir}"/ -->
-            <fileset dir="./product/${src.dir}"/>
+            <fileset dir="./A/${src.dir}"/>
+			<fileset dir="./B/${src.dir}"/>
+			<fileset dir="./Integration/${src.dir}"/>
         </cobertura-report>
     </target>
 
@@ -38,7 +42,7 @@
     </target>
 
     <property environment="env"/>
-    <property name="COBERTURA_HOME" value="/Users/tsu/java/cobertura-1.9.4.1"/>
+    <property name="COBERTURA_HOME" value="./lib/cobertura-2.1.1"/>
     <property name="cobertura.dir" value="${COBERTURA_HOME}"/>
     <path id="cobertura.classpath">
         <fileset dir="${cobertura.dir}">
