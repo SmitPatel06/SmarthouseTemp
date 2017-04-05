@@ -122,7 +122,6 @@ classes
 .depend
 javadoc
 lex.yy.c 
-lib
 .libs
 obj
 out
@@ -173,3 +172,6 @@ buildNumber.properties
 
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
+!/lib/*.jar
+!/lib/**/
+!/lib/**/**
