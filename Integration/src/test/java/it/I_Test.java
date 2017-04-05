@@ -7,7 +7,7 @@ import org.junit.Test;
 import a.A1;
 import b.B1;
 
-public class Itest {
+public class I_Test {
 
 	@Test
 	public void test() {

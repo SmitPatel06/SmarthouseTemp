@@ -15,13 +15,13 @@ branches:
 
 # add this if you use maven for your project and want to verify mvn build is successful and all unit tests pass.
 script:
- - mvn test
- - mvn cobertura:cobertura
+ #- mvn test
+ #- mvn cobertura:cobertura
 # - mvn clean install -Pcoverage
-# - mvn clean compile
-# - ant instrument
-# - mvn test
-# - ant report
+ - mvn clean compile
+ - ant instrument
+ - mvn test
+ - ant report
 
 
 # running coverage tool

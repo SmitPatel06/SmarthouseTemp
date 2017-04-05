@@ -34,21 +34,6 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>.</directory>
-                            <includes>
-                                <include>**/*.ser</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -59,18 +44,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-            <groupId>net.sourceforge.cobertura</groupId>
-            <artifactId>cobertura</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-
 	</dependencies>
 	<modules>
 		<module>A</module>
 		<module>B</module>
 		<module>Integration</module>
-	</modules>
+	<module>D</module></modules>
 	
 	
 	<profiles>
