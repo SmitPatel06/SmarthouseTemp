@@ -17,7 +17,7 @@ branches:
 script:
  - mvn test
  - mvn cobertura:cobertura
- - ls -R /home/travis/build/RonGatenio/SmarthouseTemp | grep cobertura
+ - ls -R /home/travis/build/RonGatenio | grep cobertura
 
 
 # running coverage tool
