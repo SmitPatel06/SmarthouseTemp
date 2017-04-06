@@ -44,5 +44,6 @@
 		<module>A</module>
 		<module>B</module>
 		<module>Integration</module>
+		<module>D</module>
 	</modules>
 </project>

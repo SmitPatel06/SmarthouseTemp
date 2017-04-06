@@ -1,52 +1,57 @@
 <project>
-    <target name="instrument">
-        <!-- Add all modules that should be included below -->
-        <!-- <antcall target="instrumentAModule">
+	<target name="instrument">
+		<!-- Add all modules that should be included below -->
+		<!-- <antcall target="instrumentAModule">
             <param name="module" value="MODULE_NAME_TO_REPLACE"/>
         </antcall> -->
-        <antcall target="instrumentAModule">
-            <param name="module" value="A"/>
-			<param name="module" value="B"/>
-        </antcall>
-    </target>
+		<antcall target="instrumentAModule">
+			<param name="module" value="B" />
+		</antcall>
+		<antcall target="instrumentAModule">
+			<param name="module" value="A" />
+		</antcall>
+		<antcall target="instrumentAModule">
+			<param name="module" value="D" />
+		</antcall>
+		<antcall target="instrumentAModule">
+			<param name="module" value="Integration" />
+		</antcall>
+	</target>
 
-    <target name="report" depends="merge">
-        <property name="src.dir" value="src/main/java/"/>
-        <cobertura-report datafile="sum.ser"
-                          format="html"
-                          destdir="./target/report">
-            <!-- Add all modules that should be included below -->
-            <!-- fileset dir="./MODULE_NAME_TO_REPLACE/${src.dir}"/ -->
-            <fileset dir="./A/${src.dir}"/>
-			<fileset dir="./B/${src.dir}"/>
-        </cobertura-report>
-    </target>
+	<target name="report" depends="merge">
+		<property name="src.dir" value="src/main/java/" />
+		<cobertura-report datafile="sum.ser" format="xml" destdir="./target/site/cobertura">
+			<!-- Add all modules that should be included below -->
+			<!-- fileset dir="./MODULE_NAME_TO_REPLACE/${src.dir}"/ -->
+			<!-- <fileset dir="./A/${src.dir}" />-->
+		</cobertura-report>
+	</target>
 
-    <target name="merge">
-        <cobertura-merge datafile="sum.ser">
-            <fileset dir=".">
-                <include name="**/cobertura.ser"/>
-            </fileset>
-        </cobertura-merge>
-    </target>
+	<target name="merge">
+		<cobertura-merge datafile="sum.ser">
+			<fileset dir=".">
+				<include name="**/cobertura.ser" />
+			</fileset>
+		</cobertura-merge>
+	</target>
 
-    <target name="instrumentAModule">
-        <property name="classes.dir" value="target/classes"/>
-        <cobertura-instrument todir="./${module}/${classes.dir}">
-            <fileset dir="./${module}/target/classes">
-                <include name="**/*.class"/>
-            </fileset>
-        </cobertura-instrument>
-    </target>
+	<target name="instrumentAModule">
+		<property name="classes.dir" value="target/classes" />
+		<cobertura-instrument todir="./${module}/${classes.dir}">
+			<fileset dir="./${module}/target/classes">
+				<include name="**/*.class" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
 
-    <property environment="env"/>
-    <property name="COBERTURA_HOME" value="./lib/cobertura-2.1.1"/>
-    <property name="cobertura.dir" value="${COBERTURA_HOME}"/>
-    <path id="cobertura.classpath">
-        <fileset dir="${cobertura.dir}">
-            <include name="cobertura*.jar"/>
-            <include name="lib/**/*.jar"/>
-        </fileset>
-    </path>
-    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+	<property environment="env" />
+	<property name="COBERTURA_HOME" value="./lib/cobertura-2.1.1" />
+	<property name="cobertura.dir" value="${COBERTURA_HOME}" />
+	<path id="cobertura.classpath">
+		<fileset dir="${cobertura.dir}">
+			<include name="cobertura*.jar" />
+			<include name="lib/**/*.jar" />
+		</fileset>
+	</path>
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 </project>
