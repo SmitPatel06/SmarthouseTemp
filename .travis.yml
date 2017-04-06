@@ -17,7 +17,7 @@ branches:
 script:
  #- mvn test
  #- mvn cobertura:cobertura
- - mvn clean install -Pcoverage
+ # - mvn clean install -Pcoverage
  - mvn clean compile
  - ant instrument
  - mvn test
