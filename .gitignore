@@ -175,3 +175,4 @@ buildNumber.properties
 !/lib/*.jar
 !/lib/**/
 !/lib/**/**
+*.ser
