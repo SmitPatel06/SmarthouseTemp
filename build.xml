@@ -7,7 +7,6 @@
         <antcall target="instrumentAModule">
             <param name="module" value="A"/>
 			<param name="module" value="B"/>
-			<param name="module" value="D"/>
         </antcall>
     </target>
 
@@ -20,7 +19,6 @@
             <!-- fileset dir="./MODULE_NAME_TO_REPLACE/${src.dir}"/ -->
             <fileset dir="./A/${src.dir}"/>
 			<fileset dir="./B/${src.dir}"/>
-			<fileset dir="./D/${src.dir}"/>
         </cobertura-report>
     </target>
 

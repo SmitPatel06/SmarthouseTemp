@@ -6,4 +6,11 @@
     <version>0.99</version>
   </parent>
   <artifactId>D</artifactId>
+  <dependencies>
+		<dependency>
+			<groupId>net.sourceforge.cobertura</groupId>
+			<artifactId>cobertura</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+	</dependencies>
 </project>
