@@ -1,6 +1,10 @@
 language: java
 jdk: oraclejdk8
 
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 sudo: false
 addons:
   apt:
@@ -12,16 +16,13 @@ branches:
  only:
   - master
 
+before_script:
+ - cd Smarthouse/
 
 # add this if you use maven for your project and want to verify mvn build is successful and all unit tests pass.
 script:
- #- mvn test
- #- mvn cobertura:cobertura
- # - mvn clean install -Pcoverage
- - mvn clean compile
- - ant instrument
  - mvn test
- - ant report
+ - mvn cobertura:cobertura
 
 
 # running coverage tool
