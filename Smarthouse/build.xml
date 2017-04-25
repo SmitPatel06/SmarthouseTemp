@@ -4,18 +4,20 @@
 		<!-- <antcall target="instrumentAModule">
             <param name="module" value="MODULE_NAME_TO_REPLACE"/>
         </antcall> -->
+		<!--
 		<antcall target="instrumentAModule">
 			<param name="module" value="applications" />
-		</antcall>
+		</antcall>-->
 		<antcall target="instrumentAModule">
 			<param name="module" value="common" />
 		</antcall>
+		<!--
 		<antcall target="instrumentAModule">
 			<param name="module" value="developers_kit" />
 		</antcall>
 		<antcall target="instrumentAModule">
 			<param name="module" value="integration_tests" />
-		</antcall>
+		</antcall>-->
 		<antcall target="instrumentAModule">
 			<param name="module" value="network" />
 		</antcall>
@@ -43,19 +45,13 @@
 		</cobertura-merge>
 	</target>
 
-	<target name="instrumentAModule" if="dir.exists">
+	<target name="instrumentAModule">
 		<property name="classes.dir" value="target/classes" />
 		<cobertura-instrument todir="./${module}/${classes.dir}">
 			<fileset dir="./${module}/target/classes">
 				<include name="**/*.class" />
 			</fileset>
 		</cobertura-instrument>
-	</target>
-
-	<target name="dir.check">
-		<condition property="dir.exists">
-			<available file="./${module}/${classes.dir}" type="dir"/>
-		</condition>
 	</target>
 	
 	<property environment="env" />
