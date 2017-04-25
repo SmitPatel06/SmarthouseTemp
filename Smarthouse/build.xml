@@ -43,20 +43,21 @@
 		</cobertura-merge>
 	</target>
 
-	<target name="instrumentAModule">
+	<target name="instrumentAModule" if="dir.exists">
 		<property name="classes.dir" value="target/classes" />
-		<if>
-			<available file="./${module}/${classes.dir}" type="dir" />
-			<then>
-				<cobertura-instrument todir="./${module}/${classes.dir}">
-					<fileset dir="./${module}/target/classes">
-						<include name="**/*.class" />
-					</fileset>
-				</cobertura-instrument>
-			</then>
-		</if>
+		<cobertura-instrument todir="./${module}/${classes.dir}">
+			<fileset dir="./${module}/target/classes">
+				<include name="**/*.class" />
+			</fileset>
+		</cobertura-instrument>
 	</target>
 
+	<target name="dir.check">
+		<condition property="dir.exists">
+			<available file="./${module}/${classes.dir}" type="dir"/>
+		</condition>
+	</target>
+	
 	<property environment="env" />
 	<property name="COBERTURA_HOME" value="./lib/cobertura-2.1.1" />
 	<property name="cobertura.dir" value="${COBERTURA_HOME}" />
