@@ -177,4 +177,7 @@ buildNumber.properties
 !*/pom.xml
 !pom.xml
 !build.xml
+!/lib/*.jar
+!/lib/**/
+!/lib/**/**
 *.ser
