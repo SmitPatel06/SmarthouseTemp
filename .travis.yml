@@ -18,6 +18,7 @@ branches:
 
 before_script:
  - cd Smarthouse/
+ - pip install --user codecov
 
 # add this if you use maven for your project and want to verify mvn build is successful and all unit tests pass.
 script:
@@ -31,5 +32,6 @@ script:
 
 # running coverage tool
 after_success:
-- bash <(curl -s https://codecov.io/bash) -t repository-upload-token
+- codecov
+#- bash <(curl -s https://codecov.io/bash) -t repository-upload-token
 #- bash <(curl -s https://codecov.io/bash)
