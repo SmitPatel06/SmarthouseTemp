@@ -45,11 +45,16 @@
 
 	<target name="instrumentAModule">
 		<property name="classes.dir" value="target/classes" />
-		<cobertura-instrument todir="./${module}/${classes.dir}">
-			<fileset dir="./${module}/target/classes">
-				<include name="**/*.class" />
-			</fileset>
-		</cobertura-instrument>
+		<if>
+			<available file="./${module}/${classes.dir}" type="dir" />
+			<then>
+				<cobertura-instrument todir="./${module}/${classes.dir}">
+					<fileset dir="./${module}/target/classes">
+						<include name="**/*.class" />
+					</fileset>
+				</cobertura-instrument>
+			</then>
+		</if>
 	</target>
 
 	<property environment="env" />
