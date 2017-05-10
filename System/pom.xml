@@ -3,9 +3,8 @@
   <parent>
     <groupId>Technion</groupId>
     <artifactId>SmartcitySmarthouse</artifactId>
-    <version>0.99</version>
+    <version>1.01</version>
   </parent>
   <artifactId>System</artifactId>
   <name>System</name>
-  <packaging>jar</packaging>
 </project>
